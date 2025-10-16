@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Create Quiz{% endblock %}
+{% block content %}
+  <div class="bg-white p-6 rounded shadow">
+    <h1 class="text-2xl font-bold mb-4">Create a new quiz</h1>
+    <form id="createForm" class="space-y-4">
+      <label class="block">
+        <span class="text-sm font-medium">Topic</span>
+        <select name="topic" id="topic" class="mt-1 block w-full rounded border p-2">
+          {% for t in topics %}
+            <option value="{{t}}">{{t}}</option>
+          {% endfor %}
+        </select>
+      </label>
+
+      <div>
+        <button class="px-4 py-2 bg-blue-600 text-white rounded" type="submit">Generate Quiz</button>
+      </div>
+
+      <div id="result" class="mt-4"></div>
+    </form>
+  </div>
+
+  <script>
+const form = document.getElementById('createForm');
+const resultDiv = document.getElementById('result');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  resultDiv.innerText = "Generating quiz...";
+
+  const topic = document.getElementById('topic').value;
+
+  try {
+    const res = await fetch('/generate-test', {
+      method: 'POST',                  // must be POST
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ topic })  // send JSON
+    });
+
+    // Defensive: parse response safely
+    const text = await res.text();
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      throw new Error("Server returned non-JSON: " + text.slice(0, 200));
+    }
+
+    if (!res.ok) {
+      resultDiv.innerText = "Error: " + (data.error || JSON.stringify(data));
+      return;
+    }
+
+    resultDiv.innerHTML = `Quiz created! <a href="${data.quiz_url}" class="text-blue-600 underline">Open quiz</a>`;
+
+  } catch (err) {
+    resultDiv.innerText = 'Request failed: ' + err;
+  }
+});
+</script>
+
+{% endblock %}

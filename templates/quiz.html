@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+{% block title %}Quiz - {{ topic }}{% endblock %}
+{% block content %}
+  <div class="bg-white p-6 rounded shadow">
+    <h1 class="text-2xl font-bold mb-2">Quiz: {{ topic }}</h1>
+    <p class="text-sm mb-4">Duration: {{ duration }} minutes | Questions: {{ questions|length }} | Time per question: {{ time_limit_per_question }} seconds</p>
+
+    <div class="mb-4">
+      <label class="block">
+        <span class="text-sm">Your name</span>
+        <input id="name" class="mt-1 block w-full border rounded p-2" placeholder="Enter name (will appear on leaderboard)" />
+      </label>
+    </div>
+
+    <div class="text-lg font-semibold mb-4">
+      <span>Overall Time Left: <span id="overallTimeLeft"></span></span>
+      <span style="margin-left: 20px;">Question Time Left: <span id="questionTimeLeft"></span></span>
+    </div>
+
+    <form id="quizForm">
+      <div id="questions">
+        {% for q in questions %}
+          <div class="question" id="question-{{ q.id }}" style="display: none;">
+            <div class="font-medium">Q{{ q.id }}. {{ q.question }}</div>
+            <div class="mt-2 space-y-1">
+              {% for key, opt in q.options.items() %}
+                <label class="block">
+                  <input type="radio" name="q{{ q.id }}" value="{{ key }}" /> <span class="ml-2">{{ key }}. {{ opt }}</span>
+                </label>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="flex items-center space-x-3 mt-4">
+        <button type="button" id="nextBtn" class="px-4 py-2 bg-blue-600 text-white rounded">Next</button>
+        <button type="button" id="submitBtn" class="px-4 py-2 bg-green-600 text-white rounded" style="display: none;">Submit</button>
+        <a id="leaderboardLink" href="{{ url_for('leaderboard', quiz_id=quiz_id) }}" class="text-sm text-blue-600">View leaderboard</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const questions = document.querySelectorAll('.question');
+    const nextBtn = document.getElementById('nextBtn');
+    const submitBtn = document.getElementById('submitBtn');
+    const overallTimeLeftSpan = document.getElementById('overallTimeLeft');
+    const questionTimeLeftSpan = document.getElementById('questionTimeLeft');
+    const form = document.getElementById('quizForm');
+    const nameInput = document.getElementById('name');
+    let currentQuestion = 0;
+    const timePerQuestion = {{ time_limit_per_question }}; // Seconds
+    const totalQuizTime = {{ duration * 60 }}; // Total quiz time in seconds
+    let questionTimer, overallTimer;
+    const answers = {};
+
+    function formatTime(seconds) {
+      const mm = Math.floor(seconds / 60).toString().padStart(2, '0');
+      const ss = (seconds % 60).toString().padStart(2, '0');
+      return `${mm}:${ss}`;
+    }
+
+    function startQuestionTimer() {
+      let timeLeft = timePerQuestion;
+      questionTimeLeftSpan.textContent = formatTime(timeLeft);
+      const startTime = Date.now();
+      questionTimer = setInterval(() => {
+        timeLeft = timePerQuestion - Math.floor((Date.now() - startTime) / 1000);
+        if (timeLeft <= 0) {
+          clearInterval(questionTimer);
+          goToNextQuestion();
+        } else {
+          questionTimeLeftSpan.textContent = formatTime(timeLeft);
+        }
+      }, 1000);
+    }
+
+    function startOverallTimer() {
+      let timeLeft = totalQuizTime;
+      overallTimeLeftSpan.textContent = formatTime(timeLeft);
+      overallTimer = setInterval(() => {
+        timeLeft--;
+        if (timeLeft <= 0) {
+          clearInterval(overallTimer);
+          clearInterval(questionTimer);
+          alert('Overall time up! Auto-submitting...');
+          submitQuiz();
+        } else {
+          overallTimeLeftSpan.textContent = formatTime(timeLeft);
+        }
+      }, 1000);
+    }
+
+    function goToNextQuestion() {
+      clearInterval(questionTimer);
+      // Save current answer and time taken
+      const selected = document.querySelector(`input[name="q${questions[currentQuestion].id.split('-')[1]}"]:checked`);
+      const timeTaken = timePerQuestion - (questionTimeLeftSpan.textContent ? parseInt(questionTimeLeftSpan.textContent.split(':')[1]) : 0);
+      answers[questions[currentQuestion].id.split('-')[1]] = {
+        choice: selected ? selected.value : "",
+        time_taken: timeTaken >= 0 ? timeTaken : timePerQuestion
+      };
+      questions[currentQuestion].style.display = 'none';
+      currentQuestion++;
+      if (currentQuestion < questions.length) {
+        questions[currentQuestion].style.display = 'block';
+        startQuestionTimer();
+      } else {
+        nextBtn.style.display = 'none';
+        submitBtn.style.display = 'inline-block';
+      }
+    }
+
+    async function submitQuiz() {
+      clearInterval(questionTimer);
+      clearInterval(overallTimer);
+      // Save final answer if on last question
+      if (currentQuestion < questions.length) {
+        const selected = document.querySelector(`input[name="q${questions[currentQuestion].id.split('-')[1]}"]:checked`);
+        const timeTaken = timePerQuestion - (questionTimeLeftSpan.textContent ? parseInt(questionTimeLeftSpan.textContent.split(':')[1]) : 0);
+        answers[questions[currentQuestion].id.split('-')[1]] = {
+          choice: selected ? selected.value : "",
+          time_taken: timeTaken >= 0 ? timeTaken : timePerQuestion
+        };
+      }
+      const name = nameInput.value || "Anonymous";
+      const timeTakenTotal = totalQuizTime - (overallTimeLeftSpan.textContent ? 
+        parseInt(overallTimeLeftSpan.textContent.split(':')[0]) * 60 + parseInt(overallTimeLeftSpan.textContent.split(':')[1]) : 0);
+      
+      try {
+        const res = await fetch('/submit/{{ quiz_id }}', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name,
+            answers,
+            time_seconds: timeTakenTotal
+          })
+        });
+        const j = await res.json();
+        if (!res.ok) {
+          alert('Submit error: ' + JSON.stringify(j));
+          submitBtn.disabled = false;
+          return;
+        }
+        alert(`Submitted! Score: ${j.score} / ${j.total}`);
+        window.location.href = "{{ url_for('leaderboard', quiz_id=quiz_id) }}";
+      } catch (e) {
+        alert('Request failed: ' + e);
+        submitBtn.disabled = false;
+      }
+    }
+
+    // Initialize
+    questions[0].style.display = 'block';
+    startQuestionTimer();
+    startOverallTimer();
+    nextBtn.addEventListener('click', () => {
+      goToNextQuestion();
+    });
+    submitBtn.addEventListener('click', () => {
+      if (!confirm('Submit your answers?')) return;
+      submitQuiz();
+    });
+  </script>
+{% endblock %}

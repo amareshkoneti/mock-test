@@ -1,0 +1,369 @@
+{
+  "quiz_id": "8c27ae3c",
+  "topic": "Percentages",
+  "created_at": 1760593946,
+  "duration_minutes": 30,
+  "questions": [
+    {
+      "id": 1,
+      "question": "If 20% of a number is 120, then 120% of that number will be:",
+      "options": {
+        "A": "360",
+        "B": "720",
+        "C": "480",
+        "D": "840"
+      },
+      "answer": "B",
+      "explanation": "Let the number be x. 0.20x = 120, so x = 600. Then 1.20 * 600 = 720."
+    },
+    {
+      "id": 2,
+      "question": "A student has to secure 40% marks to pass. He gets 40 marks and fails by 40 marks. What are the maximum marks?",
+      "options": {
+        "A": "200",
+        "B": "300",
+        "C": "240",
+        "D": "150"
+      },
+      "answer": "A",
+      "explanation": "Passing marks = 40 + 40 = 80.  40% of total marks = 80. Total marks = (80/40) * 100 = 200."
+    },
+    {
+      "id": 3,
+      "question": "In an election between two candidates, one got 55% of the total valid votes. 20% of the votes were invalid. If the total number of votes was 7500, what is the number of valid votes that the other candidate got?",
+      "options": {
+        "A": "2700",
+        "B": "2900",
+        "C": "3000",
+        "D": "3100"
+      },
+      "answer": "A",
+      "explanation": "Valid votes = 80% of 7500 = 6000. Votes the other candidate got = (100 - 55)% of 6000 = 45% of 6000 = 2700."
+    },
+    {
+      "id": 4,
+      "question": "The price of sugar is increased by 20%. By what percentage must a family reduce the consumption of sugar so as not to increase the expenditure?",
+      "options": {
+        "A": "20%",
+        "B": "16 2/3%",
+        "C": "10%",
+        "D": "15%"
+      },
+      "answer": "B",
+      "explanation": "Reduction in consumption = (R / (100 + R)) * 100 = (20 / 120) * 100 = 16 2/3%."
+    },
+    {
+      "id": 5,
+      "question": "If A's income is 25% more than B's, then B's income is how much percent less than A's?",
+      "options": {
+        "A": "25%",
+        "B": "20%",
+        "C": "30%",
+        "D": "33.33%"
+      },
+      "answer": "B",
+      "explanation": "Percentage less = (R / (100 + R)) * 100 = (25 / 125) * 100 = 20%."
+    },
+    {
+      "id": 6,
+      "question": "What percentage of numbers from 1 to 70 have 1 or 9 in the unit's digit?",
+      "options": {
+        "A": "1%",
+        "B": "14%",
+        "C": "20%",
+        "D": "21%"
+      },
+      "answer": "C",
+      "explanation": "Numbers ending in 1 or 9: 1, 9, 11, 19, 21, 29, 31, 39, 41, 49, 51, 59, 61, 69.  There are 14 such numbers.  Percentage = (14/70) * 100 = 20%."
+    },
+    {
+      "id": 7,
+      "question": "A batsman scored 110 runs which included 3 boundaries and 8 sixes. What percent of his total score did he make by running between the wickets?",
+      "options": {
+        "A": "45%",
+        "B": "45 5/11%",
+        "C": "54 6/11%",
+        "D": "55%"
+      },
+      "answer": "B",
+      "explanation": "Runs scored by boundaries = 3 * 4 = 12. Runs scored by sixes = 8 * 6 = 48. Runs scored by running = 110 - 12 - 48 = 50. Percentage = (50/110) * 100 = 45 5/11%."
+    },
+    {
+      "id": 8,
+      "question": "Two numbers are respectively 20% and 50% more than a third number. The ratio of the two numbers is:",
+      "options": {
+        "A": "2:5",
+        "B": "3:5",
+        "C": "4:5",
+        "D": "6:7"
+      },
+      "answer": "C",
+      "explanation": "Let the third number be x. Then the two numbers are 1.2x and 1.5x. Ratio = 1.2x : 1.5x = 12:15 = 4:5."
+    },
+    {
+      "id": 9,
+      "question": "A fruit seller had some apples. He sells 40% of them and still has 420 apples. Originally, he had:",
+      "options": {
+        "A": "588",
+        "B": "600",
+        "C": "672",
+        "D": "700"
+      },
+      "answer": "D",
+      "explanation": "Let the original number of apples be x. Then 60% of x = 420. x = (420/60) * 100 = 700."
+    },
+    {
+      "id": 10,
+      "question": "The population of a town increased from 1,75,000 to 2,62,500 in a decade. The average percent increase of population per year is:",
+      "options": {
+        "A": "4.37%",
+        "B": "5%",
+        "C": "6%",
+        "D": "8.75%"
+      },
+      "answer": "B",
+      "explanation": "Increase in population = 262500 - 175000 = 87500.  Percentage increase over a decade = (87500/175000) * 100 = 50%.  Average percent increase per year = 50/10 = 5%."
+    },
+    {
+      "id": 11,
+      "question": "In a class, 60% of the students are boys and 40% are girls. If 70% of the boys and 80% of the girls pass an examination, then the percentage of students who failed is:",
+      "options": {
+        "A": "20%",
+        "B": "24%",
+        "C": "30%",
+        "D": "32%"
+      },
+      "answer": "C",
+      "explanation": "Percentage of boys who failed = 30% of 60% = 18%. Percentage of girls who failed = 20% of 40% = 8%. Total percentage of students who failed = 18% + 8% = 26%."
+    },
+    {
+      "id": 12,
+      "question": "A number is increased by 20% and then decreased by 20%. The net decrease percent is:",
+      "options": {
+        "A": "0%",
+        "B": "1%",
+        "C": "4%",
+        "D": "8%"
+      },
+      "answer": "C",
+      "explanation": "Net decrease % = (x^2/100) % when increase and decrease is same. = (20^2/100) = 4%."
+    },
+    {
+      "id": 13,
+      "question": "If the numerator of a fraction is increased by 20% and the denominator is decreased by 5%, the value of the new fraction becomes 5/2. The original fraction is:",
+      "options": {
+        "A": "24/19",
+        "B": "3/7",
+        "C": "95/48",
+        "D": "48/95"
+      },
+      "answer": "D",
+      "explanation": "Let the original fraction be x/y. (1.2x) / (0.95y) = 5/2. x/y = (5/2) * (0.95/1.2) = (5/2) * (95/120) = (5/2) * (19/24) = 95/48. so original fraction is 48/95."
+    },
+    {
+      "id": 14,
+      "question": "In an examination, 35% of the candidates failed in Mathematics and 25% in English. If 10% failed in both subjects, then the percentage of candidates who passed in both subjects is:",
+      "options": {
+        "A": "50%",
+        "B": "55%",
+        "C": "57%",
+        "D": "60%"
+      },
+      "answer": "A",
+      "explanation": "Percentage of candidates who failed in Mathematics or English or both = 35 + 25 - 10 = 50%. So, Percentage of candidates who passed in both subjects = 100 - 50 = 50%."
+    },
+    {
+      "id": 15,
+      "question": "A's salary is 40% of B's salary. If A's salary is increased by 25% then by what percentage is B's salary more than the increased salary of A?",
+      "options": {
+        "A": "100%",
+        "B": "60%",
+        "C": "50%",
+        "D": "30%"
+      },
+      "answer": "A",
+      "explanation": "Let B's salary be 100. Then A's salary is 40. Increased salary of A = 40 + (25/100)*40 = 50. B's salary more than increased salary of A = (100-50) = 50. Required percentage = (50/50)*100 = 100%."
+    },
+    {
+      "id": 16,
+      "question": "The price of an article is cut by 20%. To restore it to its original price, the new price must be increased by:",
+      "options": {
+        "A": "20%",
+        "B": "25%",
+        "C": "16.66%",
+        "D": "24%"
+      },
+      "answer": "B",
+      "explanation": "Required percentage = (R / (100 - R)) * 100 = (20 / 80) * 100 = 25%."
+    },
+    {
+      "id": 17,
+      "question": "A shopkeeper increases the price of a product by 25% and then gives a discount of 10% on the new price. What is his overall profit percentage?",
+      "options": {
+        "A": "12.5%",
+        "B": "15%",
+        "C": "13.75%",
+        "D": "14%"
+      },
+      "answer": "A",
+      "explanation": "Let the original price be 100. After increasing by 25%, the price becomes 125. After discount of 10% , the final price becomes 125 - (10/100)*125 = 125 - 12.5 = 112.5. Overall profit percentage = 112.5 - 100 = 12.5%."
+    },
+    {
+      "id": 18,
+      "question": "In a library, 20% of the books are in Hindi, 50% are in English, and the rest are in French. If there are 6000 books in English, what is the total number of books in the library?",
+      "options": {
+        "A": "10000",
+        "B": "12000",
+        "C": "15000",
+        "D": "18000"
+      },
+      "answer": "B",
+      "explanation": "Let the total number of books be x. Then 50% of x = 6000. x = (6000/50) * 100 = 12000."
+    },
+    {
+      "id": 19,
+      "question": "After deducting 10% from a certain sum and then 20% from the remainder, there is Rs. 3600 left. Find the original sum.",
+      "options": {
+        "A": "Rs. 5000",
+        "B": "Rs. 4000",
+        "C": "Rs. 6000",
+        "D": "Rs. 7000"
+      },
+      "answer": "A",
+      "explanation": "Let the original sum be x. After 10% deduction, the remainder is 0.9x. After 20% deduction from the remainder, 0.8 * 0.9x = 3600. x = 3600 / (0.8 * 0.9) = 3600 / 0.72 = 5000."
+    },
+    {
+      "id": 20,
+      "question": "A man spends 75% of his income. His income increased by 20% and he increased his expenditure by 10%. Find the percentage increase in his savings.",
+      "options": {
+        "A": "10%",
+        "B": "25%",
+        "C": "50%",
+        "D": "60%"
+      },
+      "answer": "C",
+      "explanation": "Let income be 100, expenditure be 75 and savings be 25. New income = 120, new expenditure = 75 + (10/100)*75 = 82.5, new savings = 120 - 82.5 = 37.5. Percentage increase in savings = ((37.5-25)/25)*100 = (12.5/25)*100 = 50%."
+    },
+    {
+      "id": 21,
+      "question": "If the price of petrol increases by 25%, then by what percentage should a motorist reduce the consumption of petrol so that his expenditure remains the same?",
+      "options": {
+        "A": "20%",
+        "B": "25%",
+        "C": "30%",
+        "D": "33.33%"
+      },
+      "answer": "A",
+      "explanation": "Percentage reduction in consumption = (R / (100 + R)) * 100 = (25 / (100+25))*100 = (25/125) * 100 = 20%."
+    },
+    {
+      "id": 22,
+      "question": "A number exceeds 20% of itself by 40. The number is:",
+      "options": {
+        "A": "50",
+        "B": "60",
+        "C": "80",
+        "D": "320"
+      },
+      "answer": "A",
+      "explanation": "Let the number be x. x - 0.2x = 40. 0.8x = 40. x = 40/0.8 = 50."
+    },
+    {
+      "id": 23,
+      "question": "A container contains 40 litres of milk. From this container 4 litres of milk was taken out and replaced by water. This process was repeated further two times. How much milk is now contained by the container?",
+      "options": {
+        "A": "26.34 litres",
+        "B": "27.36 litres",
+        "C": "28 litres",
+        "D": "29.16 litres"
+      },
+      "answer": "D",
+      "explanation": "Milk left = [Initial quantity] * [1 - (Quantity taken out/Total quantity)]^n, where n is the number of times the process is repeated.  Milk left = 40 * [1 - (4/40)]^3 = 40 * (36/40)^3 = 40 * (9/10)^3 = 40 * (729/1000) = 29.16 litres."
+    },
+    {
+      "id": 24,
+      "question": "In a mixture of 60 litres, the ratio of milk and water is 2:1. If this ratio is to be 1:2, then the quantity of water to be further added is:",
+      "options": {
+        "A": "20 litres",
+        "B": "30 litres",
+        "C": "40 litres",
+        "D": "60 litres"
+      },
+      "answer": "D",
+      "explanation": "In 60 litres, milk = (2/3)*60 = 40 litres, and water = (1/3)*60 = 20 litres. Let x litres of water be added. 40/(20+x) = 1/2. 80 = 20 + x. x = 60 litres."
+    },
+    {
+      "id": 25,
+      "question": "A train travels 20% faster than a car. Both start from point A at the same time and reach point B, 75 km away at the same time. On the way, however, the train lost about 12.5 minutes while stopping at the stations. The speed of the car is:",
+      "options": {
+        "A": "50 km/h",
+        "B": "60 km/h",
+        "C": "70 km/h",
+        "D": "80 km/h"
+      },
+      "answer": "B",
+      "explanation": "Let the speed of car be x km/hr. Speed of train = 1.2x km/hr. (75/x) - (75/1.2x) = 12.5/60.  (75/x) - (62.5/x) = 5/24.  12.5/x = 5/24.  x = (12.5 * 24) / 5 = 60 km/hr."
+    },
+    {
+      "id": 26,
+      "question": "The length of a rectangle is increased by 20% and the breadth is decreased by 20%. Then the area:",
+      "options": {
+        "A": "Decreases by 4%",
+        "B": "Increases by 4%",
+        "C": "Decreases by 20%",
+        "D": "Remains same"
+      },
+      "answer": "A",
+      "explanation": "Let original length and breadth be l and b respectively. New length = 1.2l and new breadth = 0.8b. Original area = lb. New area = 1.2l * 0.8b = 0.96lb. Decrease in area = (lb - 0.96lb)/lb * 100 = 0.04 * 100 = 4%."
+    },
+    {
+      "id": 27,
+      "question": "A vendor sells 60% of apples and still has 280 apples. How many apples did he have originally?",
+      "options": {
+        "A": "420",
+        "B": "480",
+        "C": "700",
+        "D": "780"
+      },
+      "answer": "C",
+      "explanation": "Let total no. of apples be x. So, (100 - 60)% of x = 280 => (40/100)*x = 280 => x = (280*100)/40 = 700."
+    },
+    {
+      "id": 28,
+      "question": "What is the percentage increase in the area of a circle if its radius is increased by 50%?",
+      "options": {
+        "A": "25%",
+        "B": "50%",
+        "C": "75%",
+        "D": "125%"
+      },
+      "answer": "D",
+      "explanation": "Let original radius be r. Then the new radius is 1.5r. Original area is πr². New area = π(1.5r)² = π(2.25r²) = 2.25πr². % increase in area = ((2.25πr² - πr²)/πr²) * 100 = (1.25πr²/πr²) * 100 = 1.25 * 100 = 125%."
+    },
+    {
+      "id": 29,
+      "question": "The price of a certain item is increased by 15%. If a consumer wants to keep his expenditure on the item the same as before, how much percent must he reduce his consumption of the item?",
+      "options": {
+        "A": "15%",
+        "B": "13.04%",
+        "C": "16.66%",
+        "D": "17.24%"
+      },
+      "answer": "B",
+      "explanation": "Percentage reduction = (R / (100 + R)) * 100 = (15 / (100 + 15)) * 100 = (15 / 115) * 100 = 13.04%."
+    },
+    {
+      "id": 30,
+      "question": "A bag contains 2 red, 3 green and 2 blue balls. Two balls are drawn at random. What is the probability that none of the balls drawn is blue?",
+      "options": {
+        "A": "10/21",
+        "B": "4/7",
+        "C": "2/7",
+        "D": "5/7"
+      },
+      "answer": "A",
+      "explanation": "Total number of balls = 2+3+2 = 7. Number of non-blue balls = 2+3=5.  P(none blue) = (5C2) / (7C2) = (5*4/2) / (7*6/2) = 10/21"
+    }
+  ],
+  "submissions": []
+}
