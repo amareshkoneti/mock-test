@@ -136,20 +136,108 @@ def call_gemini(prompt):
 @app.route("/")
 def index():
     topics = [
-        "Percentages", "Time & Work", "Averages", "Ratio & Proportion",
-        "Profit & Loss", "Simple & Compound Interest", "Mensuration",
-        "Algebra", "Probability", "Permutation & Combination"
-    ]
+    # Foundation / Must-prepare
+    "Simplification",
+    "Areas and Mensuration",
+    "Percentage",
+    "Averages",
+    "Ratio & Proportions",
+    "Ages",
+    "Profit & Loss",
+    "Statistics",
+    "Time & Work",
+    "Pipe & Cisterns",
+    "Time, Speed & Distance",
+    "Probability",
+    "Permutations & Combinations",
+    "Number System (HCF & LCM)",
+    "Simple & Compound Interest",
+    "Data Interpretation",
+    
+    # Reasoning
+    "Syllogism",
+    "Cubes / Cut Folds",
+    "Blood Relations",
+    "Direction",
+    "Statement & Assumption",
+    "Number Series",
+    "Figure & Factual Analysis",
+    "Decision Making",
+    "Venn Diagrams",
+    "Alphabet Series",
+    "Coding Decoding",
+    "Data Sufficiency",
+    "Seating Arrangement",
+
+    # Verbal Ability
+    "Sentence Rearrangement",
+    "Comprehension",
+    "Error Detection",
+    "Sentence Completion",
+    "Tense",
+
+    # Advanced / Optional
+    "Advanced Aptitude",
+    "Arrays",
+    "Strings",
+    "Patterns",
+    "Basic Math Problems (Fibonacci, ARM, etc.)"
+]
+
     return render_template("index.html", topics=topics)
 
 # Route: create quiz page (form)
 @app.route("/create", methods=["GET"])
 def create_page():
     topics = [
-        "Percentages", "Time & Work", "Averages", "Ratio & Proportion",
-        "Profit & Loss", "Simple & Compound Interest", "Mensuration",
-        "Algebra", "Probability", "Permutation & Combination"
-    ]
+    # Foundation / Must-prepare
+    "Simplification",
+    "Areas and Mensuration",
+    "Percentage",
+    "Averages",
+    "Ratio & Proportions",
+    "Ages",
+    "Profit & Loss",
+    "Statistics",
+    "Time & Work",
+    "Pipe & Cisterns",
+    "Time, Speed & Distance",
+    "Probability",
+    "Permutations & Combinations",
+    "Number System (HCF & LCM)",
+    "Simple & Compound Interest",
+    "Data Interpretation",
+    
+    # Reasoning
+    "Syllogism",
+    "Cubes / Cut Folds",
+    "Blood Relations",
+    "Direction",
+    "Statement & Assumption",
+    "Number Series",
+    "Figure & Factual Analysis",
+    "Decision Making",
+    "Venn Diagrams",
+    "Alphabet Series",
+    "Coding Decoding",
+    "Data Sufficiency",
+    "Seating Arrangement",
+
+    # Verbal Ability
+    "Sentence Rearrangement",
+    "Comprehension",
+    "Error Detection",
+    "Sentence Completion",
+    "Tense",
+
+    # Advanced / Optional
+    "Advanced Aptitude",
+    "Arrays",
+    "Strings",
+    "Patterns",
+    "Basic Math Problems (Fibonacci, ARM, etc.)"
+]
+
     return render_template("create.html", topics=topics)
 
 # API: generate test
