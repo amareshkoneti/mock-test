@@ -78,7 +78,8 @@ Include:
 - Four options (A, B, C, D), one correct answer.
 - A short explanation for each.
 
-Return output purely in JSON — a JSON array of 30 objects, no additional prose. Each object:
+Return output purely in JSON — a JSON array of 30 objects, no additional prose. Do NOT add extra text or trailing commas.
+Each object:
 {{
   "question": "...",
   "options": {{ "A": "...", "B": "...", "C": "...", "D": "..." }},
@@ -89,27 +90,30 @@ Return output purely in JSON — a JSON array of 30 objects, no additional prose
     return prompt
 
 # Parse/normalize gemini response (defensive)
+import re
+
 def parse_gemini_response_text(resp_text: str):
     """
-    Attempt to extract JSON from response string. Gemini may return JSON directly.
-    We'll try to load JSON safely. If parsing fails, raise ValueError.
+    Attempt to extract JSON from response string.
+    Cleans common formatting issues like trailing commas before } or ].
     """
     try:
-        data = json.loads(resp_text)
+        # Extract first JSON array
+        start = resp_text.index("[")
+        end = resp_text.rindex("]") + 1
+        snippet = resp_text[start:end]
+
+        # Remove trailing commas before } or ]
+        snippet = re.sub(r",\s*([}\]])", r"\1", snippet)
+
+        # Parse JSON
+        data = json.loads(snippet)
         if isinstance(data, list) and len(data) == 30:
             return data
         return data
     except Exception as e:
-        # try to find first '[' and last ']' to extract JSON
-        s = resp_text
-        try:
-            start = s.index('[')
-            end = s.rindex(']') + 1
-            snippet = s[start:end]
-            data = json.loads(snippet)
-            return data
-        except Exception as e2:
-            raise ValueError("Failed to parse JSON from Gemini response.") from e2
+        raise ValueError(f"Failed to parse JSON from Gemini response: {e}\nRaw: {resp_text[:500]}")
+
 
 # Function to list available models for debugging
 def list_available_models():
@@ -120,7 +124,6 @@ def list_available_models():
     return models
 
 # Retry decorator for Gemini API calls
-@retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=4, max=10))
 def call_gemini(prompt):
     try:
         model = genai.GenerativeModel("gemini-2.0-flash")
