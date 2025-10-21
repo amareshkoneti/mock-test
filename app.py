@@ -411,6 +411,10 @@ def quiz_meta(quiz_id):
         "question_count": len(quiz["questions"])
     }), 200
 
+@app.route("/ping",methods=["GET","POST"])
+def ping():
+    return jsonify({"ping":"pong"}), 200
+    
 # Run
 if __name__ == "__main__":
     print(f"Quiz directory writable: {QUIZ_DIR.is_dir() and os.access(QUIZ_DIR, os.W_OK)}")
